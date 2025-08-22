@@ -10,12 +10,13 @@ pyautogui.click(418, 752)
 time.sleep(1)
 
 # Step 2: Drag to select text
-pyautogui.moveTo(500, 190)
-pyautogui.dragTo(805, 637, duration=1, button='left')
+pyautogui.moveTo(521, 209)
+pyautogui.dragTo(765, 637, duration=1, button='left')
 time.sleep(0.5)
 
 # Step 3: Copy to clipboard (Ctrl+C)
 pyautogui.hotkey('ctrl', 'c')
+pyautogui.click(770, 640)
 time.sleep(0.5)
 
 # Step 4: Get clipboard content
