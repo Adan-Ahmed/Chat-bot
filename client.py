@@ -14,7 +14,7 @@ client = OpenAI(api_key=api_key)
 resp = client.chat.completions.create(
     model="gpt-3.5-turbo",  # you can change this later
     messages=[
-        {"role": "system", "content": "You are a virtual assistant named Google skilled in general tasks like Alexa and Google Cloud"},
+        {"role": "system", "content": "You are a person name called adan who speak urdu as well english. He is from Pakistan and is coder. You analyze chat history and respong like adan"},
         {"role": "user", "content": "what is coding"}
     ]
 )

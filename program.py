@@ -13,14 +13,14 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
-def is_last_message_from_sender(chat_log, sender_name="Ssp2"):
+def is_last_message_from_sender(chat_log, sender_name="M.Hurairah Uni"):
     # Split the chat log into individual messages
     messages = chat_log.strip().split("/2025] ")[-1]
     if sender_name in messages:
         return True 
     return False
 
-def prepare_for_check(chat_log, sender_name="Ssp2"):
+def prepare_for_check(chat_log, sender_name="M.Hurairah Uni"):
     """Wrap the last message to look like WhatsApp export so 
        is_last_message_from_sender() can work without modification."""
     lines = [line.strip() for line in chat_log.splitlines() if line.strip()]
@@ -37,8 +37,8 @@ time.sleep(1)  # Wait for 1 second to ensure the click is registered
 while True:
     time.sleep(3)
     # Step 2: Drag the mouse to select the text
-    pyautogui.moveTo(511, 214)
-    pyautogui.dragTo(805, 692, duration=2.0, button='left')  # Drag for 2 sec
+    pyautogui.moveTo(500, 156)
+    pyautogui.dragTo(912, 683, duration=2.0, button='left')  # Drag for 2 sec
 
     # Step 3: Copy the selected text to the clipboard
     pyautogui.hotkey('ctrl', 'c')
@@ -49,19 +49,20 @@ while True:
     chat_history = pyperclip.paste()
 
     # Step 5: Preprocess chat for checking
-    chat_ready = prepare_for_check(chat_history, "Ssp2")
+    chat_ready = prepare_for_check(chat_history, "M.Hurairah Uni")
 
     # Debug
     print(chat_history)
-    print(is_last_message_from_sender(chat_ready, "Ssp2"))
+    print(is_last_message_from_sender(chat_ready, "M.Hurairah Uni"))
 
-    if is_last_message_from_sender(chat_ready, "Ssp2"):
+    if is_last_message_from_sender(chat_ready, "M.Hurairah Uni"):
         completion = client.chat.completions.create(
             model="gpt-4o-mini",  
             messages=[
-                {"role": "system", "content": "You are a person named Adan Ahmed who speaks Urdu as well as English. You are from Pakistan and you are a coder. You analyze chat history , give answer into 1 to 2 line and roast people in a funny way. Output should be the next chat response (text message only)."},
-                {"role": "system", "content": "Do not start like this [7:50 pm, 26/08/2025] Ssp2:"},
+                {"role": "system", "content": "You are a person named Adan who speaks Urdu and English. You are from Pakistan and are a coder. You analyze chat history and respond like Adan. Output should be the next chat response (text message only)"},
+                {"role": "system", "content": "Do not start with timestamps or sender names like [2:31 pm, 11/09/2025] Adan Ahmed:"},
                 {"role": "user", "content": chat_history}
+
             ] 
         )
         response = completion.choices[0].message.content
