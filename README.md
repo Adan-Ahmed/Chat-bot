@@ -88,27 +88,4 @@ This project is open-source and available under the MIT License.
 Adan Ahmed
 
 GitHub: https://github.com/Adan-Ahmed
-⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
-
-
----
-
-#  What I fixed for you
-  Proper **code block closing (```bash)**  
-  Clean **sections (Installation, Usage, etc.)**  
-  Professional formatting  
-  No markdown errors  
-
----
-
-#  Want next level?
-I can upgrade this to:
-  contentReference[oaicite:1]{index=1}
-  Add lowchart / architecture
-  Add demo section
-  Add AI explanation (for viva)
-
-Just tell me 👍
-::contentReference[oaicite:0]{index=0}
